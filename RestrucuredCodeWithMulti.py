@@ -5,6 +5,7 @@ Created on Wed Nov 13 15:14:42 2019
 @author: gulsha
 """
 
+#Relevant sentences extraction
 import fitz 
 import os
 from sklearn.feature_extraction.text import CountVectorizer
