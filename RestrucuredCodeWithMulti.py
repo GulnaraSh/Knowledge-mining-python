@@ -6,6 +6,7 @@ Created on Wed Nov 13 15:14:42 2019
 """
 
 #Relevant sentences extraction
+# Development test
 import fitz 
 import os
 from sklearn.feature_extraction.text import CountVectorizer
