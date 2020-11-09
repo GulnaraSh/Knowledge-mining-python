@@ -1,9 +1,9 @@
 """
 The knowmine module
 ======================
-
-Gets the folder path containing the relevant articles for knowledge mining and returns potentially relevant sentences 
-as SQL database
+The " knowmine app"extracts potentially relevant sentences from the collection of scientific articles.
+Currently a User should provide a path to the collection of texts in pdf format and list of keywords for 
+the extraction.
 
 """
 import knowmine_app.files
@@ -15,30 +15,14 @@ import json
 import time
 import concurrent.futures
 
-
+#User defined path to the collection of articles
 folder_path = 'X:\\Gulnaras mapp\Textmining\WOS\\Aquatic toxicity\\'
 
+#User defined keywords
+words = ["increas", "decreas", "relationship", "correlat", "structur", "fragment", "class", "compound", "molecul", "significant", "high", "affect"]
+keys =["toxicit","acute", "LC50", "EC50"] 
 
-def create_connection(db_file):
-    """ create a database connection to the SQLite database
-        specified by db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
-    conn = None
-    try:
-        conn = sqlite3.connect(db_file)
-    except Error as e:
-        print(e)
 
-    return conn
-
-def add_result_to_database(conn, result):
-    sql = ''' INSERT INTO ANALYSED_SENTENCES(Path, CleanedSentences, KeyWordsOfSentences, UsefulSentences)
-              VALUES(?,?,?,?)'''
-    cur = conn.cursor()
-    cur.execute(sql, result)
-    conn.commit()     
 
 #for many articles
 def get_relevant_sentences(folder_path):
