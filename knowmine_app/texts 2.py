@@ -59,12 +59,12 @@ def cleanText(text):
         
     return txt
 
-def extracttxt2(path):
-    text = textract.process(path, encoding='ascii')
+def extracttxt3(path):
+    text = textract.process(path, encoding='utf-8')
     return (str(text))
 
 
-def extracttxt3(path):
+def extracttxt2(path):
     rsrcmgr = PDFResourceManager()
     retstr = StringIO()
     codec = 'utf-8'
@@ -94,17 +94,17 @@ def gettexts (path):
     if text[0:3] =='���':
         try:
             text=extracttxt2(path)
-            text = re.sub(r'\\r\\n', ' ', text)
-            
+                   
         except:
             text=extracttxt3(path)
-            
+            text = re.sub(r'\\r\\n', ' ', text)
+    
     else: pass        
     
-    
-    text = re.sub('-\n', "", text)
-    
     text = cleanText(text)
+    text = re.sub('\n', "", text)
+    
+    
     return text
    
 

@@ -1,7 +1,7 @@
 """
 Unit tests for the knowmine_app.read_files module
 """
-from knowmine_app.read_files import get_file_names
+from read_files import get_file_names
 
 folder = 'C:\\Users\gulsha\Desktop\Articles extra for mining\\'
 
