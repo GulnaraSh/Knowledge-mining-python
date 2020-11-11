@@ -55,8 +55,8 @@ import time
 start_time = time.time()
 
 k_words = []
-for j in list_of_sentences:
-    k_words.append(ExtractKeywords(j))
+#for j in list_of_sentences[0]:
+k_words.append(ExtractKeywords(list_of_sentences[0]))
     
         
 print("Extraction--- %s seconds ---" % (time.time() - start_time))        

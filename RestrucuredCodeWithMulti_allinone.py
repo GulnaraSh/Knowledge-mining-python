@@ -94,7 +94,7 @@ class article:
 
 # extracting sentences     
 abbreviations = {'dr.': 'doctor', 'mr.': 'mister', 'bro.': 'brother', 'bro': 'brother', 'mrs.': 'mistress', 'ms.': 'miss', 'jr.': 'junior', 'sr.': 'senior',
-                 'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 'www': 'website', 'et al': 'ref'}
+                 'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 'www': 'website', 'et al': 'ref', 'et al.': 'ref'}
 terminators = ['.', '!', '?']
 wrappers = ['"', "'", ')', ']', '}']
 
@@ -165,6 +165,12 @@ def cleanText(txt):
     txt = re.sub('-\n', "", txt)
     return txt
 
+def sentences_with_key(all_s,keys):
+    sents = []
+    for sent in all_s:
+        if any(word for word in keys if(word in sent)):
+            sents.append(sent)
+    return sents
 
 def remove_ref(all_s):
     full_sent =[]
@@ -213,7 +219,8 @@ def GetAndCleanSentences(txt):
     sentences = remove_extra_spaces(sentences)
 
     # Remove references # not perfect, removes all the things in () and []
-    sentences = remove_ref(sentences)  
+#    sentences = remove_ref(sentences)  
+    sentences = sentences_with_key(sentences, keys)
     
     return sentences
 

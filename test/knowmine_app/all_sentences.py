@@ -14,7 +14,7 @@ nlp = spacy.load('en_core_web_lg')
 
 # extracting sentences     
 abbreviations = {'dr.': 'doctor', 'mr.': 'mister', 'bro.': 'brother', 'bro': 'brother', 'mrs.': 'mistress', 'ms.': 'miss', 'jr.': 'junior', 'sr.': 'senior',
-                 'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 'www': 'website', 'et al': 'ref', 'et al.': 'ref'}
+                 'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 'www': 'website', 'et al': 'ref'}
 terminators = ['.', '!', '?']
 wrappers = ['"', "'", ')', ']', '}']
 
@@ -59,13 +59,7 @@ def find_sentence_end(paragraph):
     end = (-1 if not len(possible_endings) else max(possible_endings))
     return end
 
-def sentences_with_key(all_s,keys):
-    sents = []
-    for sent in all_s:
-        if any(word for word in keys if(word in sent)):
-            sents.append(sent)
-    return sents
-            
+
 def remove_ref(all_s):
     full_sent =[]
     for sent in all_s:
@@ -113,23 +107,9 @@ def GetAndCleanSentences(txt):
     sentences = remove_extra_spaces(sentences)
 
     # Remove references # not perfect, removes all the things in () and []
-#   sentences = remove_ref(sentences)  
-    
-    sentences = sentences_with_key(sentences, keys)
+    sentences = remove_ref(sentences)  
     
     return sentences
-
-def ExtractUsefulSentences(all_s, keywords_strings):
-        
-    sent_to_read = []
-        
-    for j in keywords_strings:
-        if any(word for word in keys if(word in j[0])) and any(word for word in words if(word in j[0])):
-            sent_to_read.append(all_s[keywords_strings.index(j)])
-     
-    return sent_to_read   
-
-
 
 
 
@@ -137,3 +117,4 @@ list_of_sentences = []
 
 for txt in t2:
     list_of_sentences.append(GetAndCleanSentences(txt))
+
