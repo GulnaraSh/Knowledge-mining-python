@@ -27,7 +27,7 @@ def extracttxt1(path):
     return (ps)   
 
 def ref_remove(text):
-    words = ['Reference','References', 'REFERENCE','REFERENCES']
+    words = ['Acknowledgements', 'Acknowledgement','Reference','References', 'REFERENCE','REFERENCES']
     p=[]
     for w in words:
         if p ==[]: p = [m.start() for m in re.finditer(w, text)]

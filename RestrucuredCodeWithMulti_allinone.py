@@ -220,7 +220,7 @@ def GetAndCleanSentences(txt):
 
     # Remove references # not perfect, removes all the things in () and []
 #    sentences = remove_ref(sentences)  
-    sentences = sentences_with_key(sentences, keys)
+#    sentences = sentences_with_key(sentences, keys)
     
     return sentences
 
