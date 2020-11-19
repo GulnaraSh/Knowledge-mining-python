@@ -41,7 +41,7 @@ class RelevantSentences:
                 sent_to_read.append(sents_with_keys[keywords_strings.index(j)])
          
         return sent_to_read   
-
+# Finish this part
     def  
        processResult = (filename, json.dumps(processedFile["CleanedSentences"]), json.dumps(processedFile["KeyWordsOfSentences"]), json.dumps(processedFile["UsefulSentences"]));
     return processResult
