@@ -105,6 +105,3 @@ class SentencesExtraction:
         return full_sent
             
             
-#Test
-test = SentencesExtraction(text)
-allsents = test.get_sentences()

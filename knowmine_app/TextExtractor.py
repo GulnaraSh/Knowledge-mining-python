@@ -136,7 +136,7 @@ class TextExtraction:
    
 
 #Test
-test = TextExtraction(c)
-text = test.getText()
+#test = TextExtraction(c)
+#text = test.getText()
     
     

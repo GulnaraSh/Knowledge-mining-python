@@ -4,25 +4,30 @@ sentences module
 """
 
 from KeywordsExtractor import ExtractKeywords
-import TextExtractor 
-import AllSentencesExtractor 
+import TextExtractor as txtext
+import AllSentencesExtractor as allsent
+import json 
+
 
 class RelevantSentences:
         
-    def __init__(self,filename, main_terms,relation_words):
+    def __init__(self,file_name, main_terms,relation_words):
         self.file_name = file_name
         self.main_terms = main_terms
         self.relation_words = relation_words
 
     def get_relevant_sentences(self):
         """Class method extracting relevant sentences of all the sentences of the texts"""
+        
         return self.__ExtractUsefulSentences()
 
     
     def __sentences_with_terms(self):
         sents = []
-        text = TextExtractor.getText(self.file_name)
-        allsentences = AllSentencesExtractor.get_sentences(text)
+        text_obj = txtext.TextExtraction(self.file_name)
+        text = text_obj.getText()
+        allsents_obj = allsent.SentencesExtraction(text)
+        allsentences = allsents_obj.get_sentences()
         
         for sent in allsentences :
             if any(word for word in self.main_terms if(word in sent)):
@@ -41,8 +46,12 @@ class RelevantSentences:
                 sent_to_read.append(sents_with_keys[keywords_strings.index(j)])
          
         return sent_to_read   
+
+
+
 # Finish this part
-    def  
+    def output(self):
+        
        processResult = (filename, json.dumps(processedFile["CleanedSentences"]), json.dumps(processedFile["KeyWordsOfSentences"]), json.dumps(processedFile["UsefulSentences"]));
     return processResult
 

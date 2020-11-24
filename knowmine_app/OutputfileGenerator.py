@@ -8,19 +8,18 @@ Created on Thu Nov 19 15:47:16 2020
 
 import sqlite3
 from sqlite3 import Error
-import json 
 import concurrent.futures
 
 import os
 
 class SQLoutput:
     
-     def __init__(self, db_name, file_names, output):
+     def __init__(self, db_name, output):
         self.dbname = db_name
         self.output = output
         
         
-     def __create_connection(self):
+     def create_connection(self):
          """ create a database connection to the SQLite database
             specified by db_file
         :param db_file: database file
