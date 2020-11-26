@@ -53,7 +53,10 @@ class SentencesExtraction:
         abbreviations = {'dr.': 'doctor', 'mr.': 'mister', 'bro.': 'brother', 'bro': 'brother', 
                  'mrs.': 'mistress', 'ms.': 'miss', 'jr.': 'junior', 'sr.': 'senior',
                  'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 
-                 'www': 'website', 'et al': 'ref', 'et al.': 'ref', 'D.magna':'Daphnia magna'}
+                 'www': 'website', 'et al': 'ref', 'et al.': 'ref', 'D.magna':'Daphnia magna',
+                 'V. fischeri': 'Photobacterium phosphoreum', 'P.phosphoreum':'Photobacterium phosphoreum', 
+                  'S. capricornutum': 'Raphidocelis subcapitata', 'A.salina':'Artemia salina,', 
+                  'P.acuta Drap.':'Pysella acuta Draparnaud'}
         terminators = ['.', '!', '?']
         wrappers = ['"', "'", ')', ']', '}']
         
