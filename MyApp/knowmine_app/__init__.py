@@ -8,17 +8,14 @@ the extraction.
 """
 
 import os
-import FilesReader
-import RelevantSentencesExtractor as rse
+import knowmine_app.FilesReader as FilesReader
+import knowmine_app.RelevantSentencesExtractor as rse
 import concurrent.futures
-import OutputfileGenerator as of
-
-
-
+import knowmine_app.OutputfileGenerator as of
 
 
 #for many articles
-def extract_relevant_sentences(folder_path, main_terms, relation_words, outputfile_format="xls"):
+def extract_relevant_sentences(folder_path, main_terms, relation_words, outputfile_format="db"):
     
     
     n = int(os.cpu_count()/2)
@@ -58,6 +55,6 @@ def get_sentences(file):
 #keys =["toxicit","acute", "LC50", "EC50"]
 
 #if __name__ == '__main__':
-#   extract_relevant_sentences (folder, keys,words,"db")
+#    extract_relevant_sentences (folder, keys,words,"db")
 
 
