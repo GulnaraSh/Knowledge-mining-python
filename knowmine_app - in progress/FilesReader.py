@@ -24,10 +24,3 @@ def get_file_names(folder):
             pdfFileNames.append(folder+filename)
     return pdfFileNames
 
-
-
-
-folder = 'C:\\Users\gulsha\Desktop\Articles extra for mining\\'
-
-
-c= get_file_names(folder)

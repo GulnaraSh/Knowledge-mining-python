@@ -7,31 +7,17 @@ import re
 import spacy
 
 from collections import OrderedDict
-
-
 nlp = spacy.load('en_core_web_lg')
-# extracting sentences     
-abbreviations = {'dr.': 'doctor', 'mr.': 'mister', 'bro.': 'brother', 'bro': 'brother', 
-                 'mrs.': 'mistress', 'ms.': 'miss', 'jr.': 'junior', 'sr.': 'senior',
-                 'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 
-                 'www': 'website', 'et al': 'ref', 'et al.': 'ref', 'D.magna':'Daphnia magna'}
-terminators = ['.', '!', '?']
-wrappers = ['"', "'", ')', ']', '}']
 
 
 class SentencesExtraction:
-    
+        
     def __init__(self, filetext):
         self.filetext = filetext
 
     def get_sentences(self):
         """Class method extracting all the sentences of article texts"""
-        sentences = self.__find_sentences(self.filetext)
-        #Remove incomplete sentences
-        sentences = self.__remove_incomplete_sent(sentences)
-        # Remove extra spaces 
-        sentences = self.__remove_extra_spaces(sentences)
-        return sentences
+        return self.__find_sentences()
 
     
     def __find_sentences(self):
@@ -39,16 +25,21 @@ class SentencesExtraction:
        sentences = []
        paragraph = self.filetext
        while end > -1:
-           end = find_sentence_end(paragraph)
+           end = self.__find_sentence_end(paragraph)
            if end > -1:
                sentences.append(paragraph[end:].strip())
                paragraph = paragraph[:end]
        sentences.append(paragraph)
        sentences.reverse()
+       
+       #Remove incomplete sentences
+       sentences = self.__remove_incomplete_sent(sentences)
+       # Remove extra spaces 
+       sentences = self.__remove_extra_spaces(sentences)
        return sentences
     
     
-    def __find_all(a_str, sub):
+    def __find_all(self, a_str, sub):
         start = 0
         while True:
             start = a_str.find(sub, start)
@@ -57,16 +48,26 @@ class SentencesExtraction:
             yield start
             start += len(sub)
     
-    def __find_sentence_end(self):
-        paragraph = self.filetext
+    def __find_sentence_end(self, paragraph):
+        # extracting sentences     
+        abbreviations = {'dr.': 'doctor', 'mr.': 'mister', 'bro.': 'brother', 'bro': 'brother', 
+                 'mrs.': 'mistress', 'ms.': 'miss', 'jr.': 'junior', 'sr.': 'senior',
+                 'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 
+                 'www': 'website', 'et al': 'ref', 'et al.': 'ref', 'D.magna':'Daphnia magna',
+                 'V. fischeri': 'Photobacterium phosphoreum', 'P.phosphoreum':'Photobacterium phosphoreum', 
+                  'S. capricornutum': 'Raphidocelis subcapitata', 'A.salina':'Artemia salina,', 
+                  'P.acuta Drap.':'Pysella acuta Draparnaud'}
+        terminators = ['.', '!', '?']
+        wrappers = ['"', "'", ')', ']', '}']
+        
         [possible_endings, contraction_locations] = [[], []]
         contractions = abbreviations.keys()
         sentence_terminators = terminators + [terminator + wrapper for wrapper in wrappers for terminator in terminators]
         for sentence_terminator in sentence_terminators:
-            t_indices = list(find_all(paragraph, sentence_terminator))
+            t_indices = list(self.__find_all(paragraph, sentence_terminator))
             possible_endings.extend(([] if not len(t_indices) else [[i, len(sentence_terminator)] for i in t_indices]))
         for contraction in contractions:
-            c_indices = list(find_all(paragraph, contraction))
+            c_indices = list(self.__find_all(paragraph, contraction))
             contraction_locations.extend(([] if not len(c_indices) else [i + len(contraction) for i in c_indices]))
         possible_endings = [pe for pe in possible_endings if pe[0] + pe[1] not in contraction_locations]
         if len(paragraph) in [pe[0] + pe[1] for pe in possible_endings]:
@@ -76,20 +77,8 @@ class SentencesExtraction:
         end = (-1 if not len(possible_endings) else max(possible_endings))
         return end
     
-    def __sentences_with_key(all_s,keys):
-        sents = []
-        for sent in all_s:
-            if any(word for word in keys if(word in sent)):
-                sents.append(sent)
-        return sents
-                
-    def __remove_ref(all_s):
-        full_sent =[]
-        for sent in all_s:
-            full_sent.append(re.sub(" [\(\[].*?[\)\]]", "", sent))
-        return full_sent
-        
-    def __remove_extra_spaces(all_s):
+
+    def __remove_extra_spaces(self, all_s):
         full_sent =[]
         for sent in all_s:
             sent = re.sub(r'\s+', ' ', sent)
@@ -98,7 +87,7 @@ class SentencesExtraction:
             full_sent.append(sent)   
         return full_sent
     
-    def __remove_incomplete_sent(all_s):
+    def __remove_incomplete_sent(self, all_s):
         full_sent =[]
        
         for sent in all_s:
@@ -114,43 +103,8 @@ class SentencesExtraction:
                         has_verb -= 1
                 if has_noun < 1 and has_verb < 1:
                     full_sent.append(sent)
-                   
-                    
+                       
         full_sent = list(OrderedDict.fromkeys(full_sent)) #removes duplicates
-         
         return full_sent
             
             
-    def GetAndCleanSentences(txt):
-        
-        sentences = find_sentences(txt)
-        #Remove incomplete sentences
-        sentences = remove_incomplete_sent(sentences)
-        # Remove extra spaces 
-        sentences = remove_extra_spaces(sentences)
-    
-        # Remove references # not perfect, removes all the things in () and []
-    #   sentences = remove_ref(sentences)  
-        
-        sentences = sentences_with_key(sentences, keys)
-        
-        return sentences
-    
-    def ExtractUsefulSentences(all_s, keywords_strings):
-            
-        sent_to_read = []
-            
-        for j in keywords_strings:
-            if any(word for word in keys if(word in j[0])) and any(word for word in words if(word in j[0])):
-                sent_to_read.append(all_s[keywords_strings.index(j)])
-         
-        return sent_to_read   
-
-
-
-    
-
-list_of_sentences = []
-
-for txt in t2:
-    list_of_sentences.append(GetAndCleanSentences(txt))
