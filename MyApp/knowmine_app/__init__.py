@@ -49,12 +49,12 @@ def get_sentences(file):
 
 
 #test 
-#folder = 'C:\\Users\gulsha\Desktop\Articles extra for mining\\'
+folder = 'C:\\Users\gulsha\Desktop\Articles extra for mining\\'
 
-#words = ["increas", "decreas", "relationship", "correlat", "structur", "fragment", "class", "compound", "molecul", "significant", "high", "affect"]
-#keys =["toxicit","acute", "LC50", "EC50"]
+words = ["increas", "decreas", "relationship", "correlat", "structur", "fragment", "class", "compound", "molecul", "significant", "high", "affect"]
+keys =["toxicit","acute", "LC50", "EC50"]
 
-#if __name__ == '__main__':
-#    extract_relevant_sentences (folder, keys,words,"db")
+if __name__ == '__main__':
+    extract_relevant_sentences (folder, keys,words,"db")
 
 

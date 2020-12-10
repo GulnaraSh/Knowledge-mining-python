@@ -8,10 +8,6 @@ import os
 import knowmine_app.FilesReader as FilesReader
 import knowmine_app.RelevantSentencesExtractor as rse
 import concurrent.futures
-import knowmine_app.OutputfileGenerator as of
-
-
-
 
 
 def test_get_sentences(file):
