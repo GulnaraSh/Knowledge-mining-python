@@ -3,9 +3,9 @@
 sentences module 
 """
 
-from KeywordsExtractor import ExtractKeywords
-import TextExtractor as txtext
-import AllSentencesExtractor as allsent
+from knowmine_app.KeywordsExtractor import ExtractKeywords
+import knowmine_app.TextExtractor as txtext
+import knowmine_app.AllSentencesExtractor as allsent
 import json 
 
 

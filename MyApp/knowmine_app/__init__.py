@@ -14,6 +14,10 @@ import concurrent.futures
 import knowmine_app.OutputfileGenerator as of
 
 
+
+def get_sentences(file):
+    return file.get_relevant_sentences()
+
 #for many articles
 def extract_relevant_sentences(folder_path, main_terms, relation_words, outputfile_format="db"):
     
@@ -44,17 +48,8 @@ def extract_relevant_sentences(folder_path, main_terms, relation_words, outputfi
 
 
 
-def get_sentences(file):
-    return file.get_relevant_sentences()
 
 
-#test 
-folder = 'C:\\Users\gulsha\Desktop\Articles extra for mining\\'
 
-words = ["increas", "decreas", "relationship", "correlat", "structur", "fragment", "class", "compound", "molecul", "significant", "high", "affect"]
-keys =["toxicit","acute", "LC50", "EC50"]
-
-if __name__ == '__main__':
-    extract_relevant_sentences (folder, keys,words,"db")
 
 
