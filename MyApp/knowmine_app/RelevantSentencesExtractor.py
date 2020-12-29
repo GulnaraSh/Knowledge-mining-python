@@ -59,10 +59,3 @@ class RelevantSentences:
         processResult = (self.file_name, json.dumps(use_sents, ensure_ascii=False).encode('utf8'),nn, n_all)
         return processResult
 
-    
-
-
-#Test
-#test_s = RelevantSentences(pdfFileNames[1], keys,words)
-#sentences = test_s.get_relevant_sentences()
-    

@@ -52,4 +52,3 @@ def extract_relevant_sentences(folder_path, main_terms, relation_words, outputfi
 
 
 
-

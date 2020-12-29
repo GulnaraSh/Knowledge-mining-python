@@ -3,37 +3,29 @@
 Unit tests for the knowmine_app.OutputfileGenerator module.
 """
 
-from knowmine_app.OutputfileGenerator import Output
+import knowmine_app.OutputfileGenerator as of
 import os
 
 
-folder = os.getcwd()
+folder = os.getcwd()+"\\"
 filename = "Test_file"
 result = [filename, "Test sentence is produced",1,1]
-result_output = Output (folder, result)
+result_output = of.Output(folder, result)
 
-def test_add_result_to_database():
+def test_add_result_to_file():
     
     result_output.add_result_to_database()
-    
+    result_output.add_result_to_excel()
     
     for file in os.listdir(folder):
         filename = os.fsdecode(file)
         if filename.endswith( ('.db') ): 
             result_file_db = 1            
-           
-    assert result_file_db == 1
-
-
-
-def add_result_to_excel():
-    
-    result_output.add_result_to_excel()
-    
-    for file in os.listdir(folder):
-        filename = os.fsdecode(file)
         if filename.endswith( ('.xlsx') ): 
-            result_file_xlsx = 1            
-           
-    assert result_file_xlsx == 1
+            result_file_xlsx = 1     
     
+       
+    assert result_file_db == 1
+    assert result_file_xlsx == 1
+
+
