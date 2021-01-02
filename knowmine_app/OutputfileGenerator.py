@@ -28,7 +28,7 @@ class Output:
         """
         conn = None
         try:
-            conn = sqlite3.connect(f'{self.path+self.dbname}.db')
+            conn = sqlite3.connect(f"{self.path+self.dbname}.db")
         except Error as e:
             print(e)
 
@@ -86,7 +86,7 @@ class Output:
         
     def __write_to_excel(self):
         
-        filename = f'{self.path+self.dbname}.xlsx'
+        filename = f"{self.path+self.dbname}.xlsx"
         wb = openpyxl.load_workbook(filename)
         ws = wb.active
         column = 0
