@@ -6,11 +6,11 @@ Function accessing the files in a user provided folder and returning the list of
 
 
 from knowmine_app.FilesReader import get_file_names
-import os
+#import os
 
 def test_get_file_names():
     
-    pdfFileNames = get_file_names(os.getcwd())
+    pdfFileNames = get_file_names()
   
     assert len(pdfFileNames) > 0
 
