@@ -12,6 +12,6 @@ jobs:
           python-version: '3.6'
       - run: pip install .
       - run: pip install pytest
-      - run: pip install pke
+      - run: pip install git+https://github.com/boudinfl/pke.git
       - run: pytest test/
       
