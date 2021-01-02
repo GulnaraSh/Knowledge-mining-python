@@ -19,7 +19,6 @@ jobs:
       - run: pip install PyMuPDF
       - run: pip install textract
       - run: pip install pdfminer
-      - run: pip install sqlite3
       - run: pip install openpyxl 
       - run: pytest test/
       
