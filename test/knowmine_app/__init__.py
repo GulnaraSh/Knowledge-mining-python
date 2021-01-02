@@ -1,7 +1,7 @@
 """
 The knowmine module
 ======================
-The " knowmine app"extracts potentially relevant sentences from the collection of scientific articles.
+The "knowmine app" extracts potentially relevant sentences from the collection of scientific articles.
 Currently a User should provide a path to the collection of texts in pdf format and list of keywords for 
 the extraction.
 

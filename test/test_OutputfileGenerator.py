@@ -7,7 +7,7 @@ import knowmine_app.OutputfileGenerator as of
 import os
 
 
-folder = os.getcwd()
+folder = os.getcwd() + "/"
 filename = "Test_file"
 result = [filename, "Test sentence is produced",1,1]
 result_output = of.Output(folder, result)
