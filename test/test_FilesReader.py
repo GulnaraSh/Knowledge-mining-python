@@ -10,7 +10,7 @@ import os
 
 def test_get_file_names():
     
-    pdfFileNames = get_file_names(os.getcwd()+'\\')
+    pdfFileNames = get_file_names(os.getcwd())
   
     assert len(pdfFileNames) > 0
 
