@@ -9,7 +9,7 @@ from knowmine_app import extract_relevant_sentences
 
 
 def test_extract_relevant_sentences():
-    folder_path = os.getcwd() 
+    folder_path = os.getcwd() + "/" 
     main_terms = ["increas", "predict"]
     relation_words =["toxicit"]
     
