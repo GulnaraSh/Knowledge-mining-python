@@ -15,5 +15,8 @@ jobs:
       - run: pip install git+https://github.com/boudinfl/pke.git
       - run: pip install nltk
       - run: pip install spacy
+      - run: pip install PyMuPDF
+      - run: pip install textract
+      - run: pip install pdfminer
       - run: pytest test/
       
