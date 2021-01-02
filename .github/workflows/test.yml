@@ -15,5 +15,6 @@ jobs:
       - run: pip install git+https://github.com/boudinfl/pke.git
       - run: pip install spacy
       - run: pip install nltk
+      - run: pip install re
       - run: pytest test/
       
