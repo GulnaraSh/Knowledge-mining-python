@@ -12,7 +12,8 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
-from io import StringIO    
+from io import StringIO
+
 
 class TextExtraction:
     
@@ -52,7 +53,7 @@ class TextExtraction:
         password = ""
         maxpages = 0
         caching = True
-        pagenos=set()
+        pagenos = set()
     
         for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password,caching=caching, check_extractable=True):
             interpreter.process_page(page)
@@ -108,10 +109,9 @@ class TextExtraction:
         
         txt = self.__ref_remove(text)
         txt = self.__head_remove(txt)
-        txt = re.sub('\S*@\S*\s?', '',txt) #remove emails
-        #text = re.sub(r'\n\s*', ' ', text) #remove extra spaces
+        txt = re.sub(r'\S*@\S*\s?', '',txt) #remove emails
         txt = re.sub(r'\s\s*', ' ', txt) #remove extra spaces
-        txt = re.sub('[a-]\s', '', txt) #
+        txt = re.sub(r'[a-]\s', '', txt) #
             
         return txt
     
