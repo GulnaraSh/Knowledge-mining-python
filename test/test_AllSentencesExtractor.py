@@ -2,6 +2,8 @@
 """
 Unit tests for the knowmine_app.AllSentencesExtractor module.
 """
+import nltk
+nltk.download('stopwords')
 
 from knowmine_app.AllSentencesExtractor import SentencesExtraction
 
