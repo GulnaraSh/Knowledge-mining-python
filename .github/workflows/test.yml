@@ -15,6 +15,6 @@ jobs:
       - run: pip install git+https://github.com/boudinfl/pke.git
       - run: pip install spacy
       - run: pip install nltk
-      - run: nltk.download("stopwords")
+      - run: nltk.download()
       - run: pytest test/
       
