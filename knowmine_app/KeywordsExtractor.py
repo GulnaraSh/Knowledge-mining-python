@@ -35,7 +35,7 @@ def ExtractKeywords(sentences):
         
             # N-best selection, keyphrases contains the 10 highest scored candidates as
             # (keyphrase, score) tuples
-            keyphrases = extractor.get_n_best(n=5)
+            keyphrases = extractor.get_n_best(n=6)
         
             for k,n in keyphrases: a.append(k)
             b = b + [separator.join(a)]
