@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Function accessing the files in a user provided folder and returning the list of file names
+Function accessing the files in a user provided folder
+and returning the list of file names
 
 """
 

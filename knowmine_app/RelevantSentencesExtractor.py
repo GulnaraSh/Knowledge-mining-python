@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
 """
-sentences module 
+
+This module contains a RelevantSentences class, which, from all 
+the articles sentences, extracts only the ones containing the provided main terms
+
 """
 
 from knowmine_app.KeywordsExtractor import ExtractKeywords
@@ -22,7 +24,6 @@ class RelevantSentences:
         """Class method extracting relevant sentences of all the sentences of the texts"""
         return self.__output()
 
-    
     def __sentences_with_terms(self):
         sents = []
         text_obj = txtext.TextExtraction(self.file_name)
@@ -35,8 +36,7 @@ class RelevantSentences:
                 sents.append(sent)
         
         return (sents, n_all_sents)
-                
-       
+
     def __ExtractUsefulSentences(self):
         
         sents_with_keys, n_all = self.__sentences_with_terms()
@@ -50,19 +50,8 @@ class RelevantSentences:
         
         return (sent_to_read, n_all, nn)
 
-
-
-# Finish this part
     def __output(self):
         use_sents, n_all, nn = self.__ExtractUsefulSentences()
         
         processResult = (self.file_name, json.dumps(use_sents, ensure_ascii=False).encode('utf8'),nn, n_all)
         return processResult
-
-    
-
-
-#Test
-#test_s = RelevantSentences(pdfFileNames[1], keys,words)
-#sentences = test_s.get_relevant_sentences()
-    

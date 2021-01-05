@@ -1,10 +1,11 @@
-# -*- coding: utf-8 -*-
 """
-Created on Thu Nov 19 15:47:16 2020
+This module contains the Output class which helps to generate
+the output file of the desired format (sqlite database or excel)
+containing the extracted sentences, number of sentences in the 
+original text (after the cleaning) and number of the extracted sentences
+The result file is generated in the folder containing the articles for mining. 
 
-@author: gulsha
 """
-
 
 import sqlite3
 from sqlite3 import Error
@@ -21,10 +22,13 @@ class Output:
         self.path = folder
     
     def __create_connection(self):
-        """ create a database connection to the SQLite database
+
+        """
+        create a database connection to the SQLite database
         specified by db_file
         :param db_file: database file
         :return: Connection object or None
+
         """
         conn = None
         try:
@@ -35,10 +39,12 @@ class Output:
         return conn
 
     def __create_table(self, conn, create_table_sql):
-        """ create a table from the create_table_sql statement
+        """ 
+        create a table from the create_table_sql statement
         :param conn: Connection object
         :param create_table_sql: a CREATE TABLE statement
         :return:
+
         """
         try:
             c = conn.cursor()

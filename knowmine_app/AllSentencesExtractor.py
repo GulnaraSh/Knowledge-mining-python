@@ -1,7 +1,9 @@
-# -*- coding: utf-8 -*-
 """
-sentences module 
+The module contains SentencesExtraction class which provides functionality 
+to extract sentences from the given articles
+
 """
+
 
 import re
 import spacy
@@ -11,34 +13,43 @@ nlp = spacy.load('en_core_web_lg')
 
 
 class SentencesExtraction:
-        
+
+    """
+    This class provides methods for recognizing single sentences 
+    of a given text
+    
+    Attributes:
+        filetext: Pre cleaned text of an article
+        sentences:
+        full_sent:
+
+    """
+
     def __init__(self, filetext):
         self.filetext = filetext
 
     def get_sentences(self):
-        """Class method extracting all the sentences of article texts"""
+        """ Class method extracting all the sentences of article texts """
         return self.__find_sentences()
 
-    
     def __find_sentences(self):
-       end = True
-       sentences = []
-       paragraph = self.filetext
-       while end > -1:
-           end = self.__find_sentence_end(paragraph)
-           if end > -1:
-               sentences.append(paragraph[end:].strip())
-               paragraph = paragraph[:end]
-       sentences.append(paragraph)
-       sentences.reverse()
-       
-       #Remove incomplete sentences
-       sentences = self.__remove_incomplete_sent(sentences)
-       # Remove extra spaces 
-       sentences = self.__remove_extra_spaces(sentences)
-       return sentences
-    
-    
+        end = True
+        sentences = []
+        paragraph = self.filetext
+        while end > -1:
+            end = self.__find_sentence_end(paragraph)
+            if end > -1:
+                sentences.append(paragraph[end:].strip())
+                paragraph = paragraph[:end]
+        sentences.append(paragraph)
+        sentences.reverse()
+
+        # Remove incomplete sentences
+        sentences = self.__remove_incomplete_sent(sentences)
+        # Remove extra spaces
+        sentences = self.__remove_extra_spaces(sentences)
+        return sentences
+
     def __find_all(self, a_str, sub):
         start = 0
         while True:
@@ -47,9 +58,9 @@ class SentencesExtraction:
                 return
             yield start
             start += len(sub)
-    
+
     def __find_sentence_end(self, paragraph):
-        # extracting sentences     
+        # extracting sentences
         abbreviations = {'dr.': 'doctor', 'mr.': 'mister', 'bro.': 'brother', 'bro': 'brother', 
                  'mrs.': 'mistress', 'ms.': 'miss', 'jr.': 'junior', 'sr.': 'senior',
                  'i.e.': 'for example', 'e.g.': 'for example', 'vs.': 'versus', 'Fig.': 'Figure', 

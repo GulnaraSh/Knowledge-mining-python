@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
 """
-sentences module 
+The :code:`knowmine_app.KeywordsExtractor` module provides functionality to 
+extract five keywords of the sentences. Applies a pke module: 
+https://boudinfl.github.io/pke/build/html/index.html
+
 """
 
 import pke

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-sentences module 
+The knowmine_app.AllSentencesExtractor module
+=============================
+
+The :code:`knowmine_app.AllSentencesExtractor` module provides functionality to 
+extract sentences from the provided articles
+
 """
 
 import re

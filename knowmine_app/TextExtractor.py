@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 """
-module files 
 
-Relevant articles to mine the knowledge from
+This module contains the TextExtraction class, which allows 
+to extract and clean text from pdf articles
+
 """
 
 import re
@@ -40,7 +40,7 @@ class TextExtraction:
     
     def __extracttxt2(self):
         """Helper function to extract text by pdfminer, slower but handles 
-        formats not recongnised by PyMupdf"""
+        formats not recognized by PyMupdf"""
         
         rsrcmgr = PDFResourceManager()
         retstr = StringIO()
@@ -132,11 +132,4 @@ class TextExtraction:
         text = self.__cleanText(text)
 
            
-        return text
-   
-
-#Test
-#test = TextExtraction(c)
-#text = test.getText()
-    
-    
+        return text   
