@@ -15,7 +15,7 @@ setuptools.setup(
     version="0.0.1",
     author="Gulnara Shavalieva",
     author_email="gulsha@chalmers.se",
-    description="Articles mining package",
+    description="Knowledge mining package",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/GulnaraSh/knowledge-mining-python",
