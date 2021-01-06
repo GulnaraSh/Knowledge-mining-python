@@ -16,4 +16,5 @@ the increase and prediction of toxicity.
    folder_path = "C:/Acute toxicity articles/"
    main_terms = ["toxicit"]
    relation_words = ["increas", "predict"]
-   weather_app.extract_relevant_sentences(folder_path, main_terms, relation_words, outputfile_format="db")
+   knowmine_app.extract_relevant_sentences(folder_path, main_terms, 
+                                          relation_words, outputfile_format="db")
