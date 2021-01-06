@@ -9,10 +9,10 @@ the extraction.
 """
 
 import os
-import knowmine_app.FilesReader as FilesReader
-import knowmine_app.RelevantSentencesExtractor as rse
+from knowmine_app import FilesReader
+from knowmine_app import RelevantSentencesExtractor as rse
 import concurrent.futures
-import knowmine_app.OutputfileGenerator as of
+from knowmine_app import OutputfileGenerator as of
 
 
 

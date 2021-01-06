@@ -7,9 +7,10 @@ to extract sentences from the given articles
 
 import re
 import spacy
+import en_core_web_lg
 
 from collections import OrderedDict
-nlp = spacy.load('en_core_web_lg')
+nlp = en_core_web_lg.load()
 
 
 class SentencesExtraction:
