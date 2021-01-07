@@ -6,8 +6,8 @@ the articles sentences, extracts only the ones containing the provided main term
 """
 
 from knowmine_app.KeywordsExtractor import ExtractKeywords
-import knowmine_app.TextExtractor as txtext
-import knowmine_app.AllSentencesExtractor as allsent
+from knowmine_app import TextExtractor as txtext
+from knowmine_app import AllSentencesExtractor as allsent
 import json 
 
 
