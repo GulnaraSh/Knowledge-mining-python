@@ -5,4 +5,4 @@ texts based on the provided keywords.
 
 ## Documentation
 
-Online documentation can be found [here](https://gulnarash.github.com/Knowledge-mining-python/).
+Online documentation can be found [here](https://gulnarash.github.io/Knowledge-mining-python/).
