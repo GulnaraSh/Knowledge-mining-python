@@ -13,6 +13,7 @@ and connection words provided by a User as an indication of the type of knowledg
    installation
    usage   
    modules
+   errors
 
 Indices and tables
 ==================

@@ -1,11 +1,13 @@
 Installation
 ============
 
-The package :code:`weather_app` can be install using :code:`pip`:
+The package :code:`knowmine_app` can be install using :code:`pip`:
 
 .. code-block:: bash
 
-   $ pip install git+https://github.com/GulnaraSh/Knowledge-mining-python
+   $ pip install knowmine-0.0.1-py3-none-any.whl
+   
+The whl file can be found in the `dist` folder. 
 
 Development version
 -------------------

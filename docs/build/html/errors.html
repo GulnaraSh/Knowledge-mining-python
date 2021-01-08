@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Usage &#8212; Knowledge mining with python 0.0.1 documentation</title>
+    <title>Possible Errors &#8212; Knowledge mining with python 0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -17,8 +17,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="knowmine_app" href="modules.html" />
-    <link rel="prev" title="Installation" href="installation.html" />
+    <link rel="prev" title="knowmine_app module" href="knowmine_app.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -34,10 +33,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="knowmine_app"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="knowmine_app.html" title="knowmine_app module"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li> 
       </ul>
@@ -45,15 +41,12 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">Installation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="modules.html"
-                        title="next chapter">knowmine_app</a></p>
+  <p class="topless"><a href="knowmine_app.html"
+                        title="previous chapter">knowmine_app module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/usage.rst.txt"
+      <li><a href="_sources/errors.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -75,24 +68,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>The <cite>knowmine_app</cite> package provides the <code class="code docutils literal notranslate"><span class="pre">knowmine_app</span></code> import module
-allowing to extract relevant sentences to an output file of the chosen format.
-The following formats are currently available: SQLite database “db” or excel “xls”.
-Note: if the format of the output file is not specified, a “db” file will be created
-by default. The type of the extracted knowledge is specified by the list of terms and relation words.</p>
-<p>In the example below acute toxicity articles are analyzed to retrieve information associated with
-the increase and prediction of toxicity.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">knowmine_app</span>
-
-<span class="n">folder_path</span> <span class="o">=</span> <span class="s2">&quot;C:/Acute toxicity articles/&quot;</span>
-<span class="n">main_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;toxicit&quot;</span><span class="p">]</span>
-<span class="n">relation_words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;increas&quot;</span><span class="p">,</span> <span class="s2">&quot;predict&quot;</span><span class="p">]</span>
-<span class="n">knowmine_app</span><span class="o">.</span><span class="n">extract_relevant_sentences</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">main_terms</span><span class="p">,</span>
-                                       <span class="n">relation_words</span><span class="p">,</span> <span class="s2">&quot;xls&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+  <div class="section" id="possible-errors">
+<h1>Possible Errors<a class="headerlink" href="#possible-errors" title="Permalink to this headline">¶</a></h1>
+<p>The package is written to run on several cores via
+<cite>concurrent.futures.ProcessPoolExecutor(max_workers=n)</cite>
+sometimes there is a <cite>BrokenProcessPool: A process in the process pool
+was terminated abruptly while the future was running or pending.</cite></p>
+<p>Possible solutions:</p>
+<ul class="simple">
+<li><p>close all other programs running on the cores</p></li>
+<li><p>try to select all (Ctrl+A) and then press R9</p></li>
+<li><dl class="simple">
+<dt>reduce the number of cores for running the package:</dt><dd><p>find __init__ module in the installed package directory
+change the number of cores n</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The bag might be fixed in the future, do not forget to update
+the package from time to time.</p>
 </div>
 
 
@@ -111,10 +105,7 @@ the increase and prediction of toxicity.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="modules.html" title="knowmine_app"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="knowmine_app.html" title="knowmine_app module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li> 
       </ul>
