@@ -14,5 +14,5 @@ Possible solutions:
    find __init__ module in the installed package directory
    change the number of cores n 
    
-The bag might be fixed in the future, do not forget to update 
+The bug might be fixed in the future, do not forget to update 
 the package from time to time.
