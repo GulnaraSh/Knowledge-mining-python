@@ -25,13 +25,13 @@ class TextExtraction:
         return self.__gettexts()
 
        
-    def __extracttxt1(self):
+    def __extracttxt1(self,k):
         """Helper function to extract text by PyMupdf, fastest"""
         
         x = fitz.open(self.filepath)
         ps =''
         pageN = x.pageCount
-        for i in range(pageN):
+        for i in range(k,pageN):
             pages = x.loadPage(i)
             text =''
             text = pages.getText('text')
@@ -40,7 +40,7 @@ class TextExtraction:
     
     def __extracttxt2(self):
         """Helper function to extract text by pdfminer, slower but handles 
-        formats not recognized by PyMupdf"""
+        formats not recongnised by PyMupdf"""
         
         rsrcmgr = PDFResourceManager()
         retstr = StringIO()
@@ -74,7 +74,7 @@ class TextExtraction:
     def __ref_remove(self, text):
         """Helper function to remove the References block of articles"""
         
-        words = ['Acknowledgments ', 'Acknowledgement','ACKNOWLEDGEMENTS','ACKNOWLEDGEMENT'
+        words = ['Acknowledgments', 'Acknowledgment','ACKNOWLEDGEMENTS','ACKNOWLEDGEMENT'
                  'Reference','References', 'REFERENCE','REFERENCES']
         p=[]
         for w in words:
@@ -97,8 +97,7 @@ class TextExtraction:
             if p ==[]: p = [m.start() for m in re.finditer(w, text)]
         
         try:
-            if len(p) > 1: t = p[len(p)-1]
-            else: t = p[0]
+            t = p[0]
             head, s, tail = text.partition(text[t:t+13])
             return (tail)
         except: return (text)
@@ -106,10 +105,9 @@ class TextExtraction:
     def __cleanText(self,text):
         """Helper function to remove the heading and references block of articles"""
         
-        txt = self.__ref_remove(text)
-        txt = self.__head_remove(txt)
+        txt = self.__head_remove(text)
+        txt = self.__ref_remove(txt)
         txt = re.sub('\S*@\S*\s?', '',txt) #remove emails
-        #text = re.sub(r'\n\s*', ' ', text) #remove extra spaces
         txt = re.sub(r'\s\s*', ' ', txt) #remove extra spaces
         txt = re.sub('[a-]\s', '', txt) #
             
@@ -117,9 +115,18 @@ class TextExtraction:
     
     def __gettexts (self):
         """Helper function applying text extraction functions"""
-       
-        text = self.__extracttxt1()
-        if text[0:3] =='���':
+        x = fitz.open(self.filepath)
+        page0 = x.loadPage(0)
+        txt =''
+        txt = page0.getText('text')
+
+        if ". . . . . ." in txt:
+            k = 1 
+        else: 
+            k = 0
+                      
+        if '���' in txt[0:10]:
+            
             try:
                 text= self.__extracttxt2()
                        
@@ -127,9 +134,9 @@ class TextExtraction:
                 text=self.__extracttxt3()
 
         
-        else: pass        
+        else: text = self.__extracttxt1(k)       
         
         text = self.__cleanText(text)
 
            
-        return text   
+        return text
