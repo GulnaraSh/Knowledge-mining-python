@@ -25,13 +25,13 @@ class TextExtraction:
         return self.__gettexts()
 
        
-    def __extracttxt1(self,k):
+    def __extracttxt1(self):
         """Helper function to extract text by PyMupdf, fastest"""
         
         x = fitz.open(self.filepath)
         ps =''
         pageN = x.pageCount
-        for i in range(k,pageN):
+        for i in range(pageN):
             pages = x.loadPage(i)
             text =''
             text = pages.getText('text')
@@ -74,38 +74,48 @@ class TextExtraction:
     def __ref_remove(self, text):
         """Helper function to remove the References block of articles"""
         
-        words = ['Acknowledgments', 'Acknowledgment','ACKNOWLEDGEMENTS','ACKNOWLEDGEMENT'
-                 'Reference','References', 'REFERENCE','REFERENCES']
-        p=[]
-        for w in words:
-            if p ==[]: p = [m.start() for m in re.finditer(w, text)]
+        words1 = ['Acknowledgments', 'Acknowledgement','ACKNOWLEDGEMENTS',
+                 'ACKNOWLEDGEMENT', 'ACKNOWLEDGMENT', 'Acknowledgment']
         
+        words2 = ['References','REFERENCES','LITERATURE CITED']
+        p=[]
+        for w in words1:
+            pp = [m.start() for m in re.finditer(w, text)]
+            if pp: p.append(pp)
+        if not p:
+            for w in words2:
+                pp = [m.start() for m in re.finditer(w, text)]
+                if pp: p.append(pp)
+            
         try:
-            if len(p) > 1: t = p[len(p)-1]
-            else: t = p[0]
-            head, s, tail = text.partition(text[t:t+13])
+            t = max(p)[0]
+            head, s, tail = text.partition(text[t:t+16])
             return (head)
         except: return (text)
     
-    def __head_remove(self, text):
+    def __head_remove(self, text,k):
         """Helper function to remove the heading of articles
         (all until the Introduction part)"""
         
-        words = ['Introduction','INTRODUCTION']
+        words = ['Introduction','INTRODUCTION','Background','BACKGROUND']
         p=[]
         for w in words:
-            if p ==[]: p = [m.start() for m in re.finditer(w, text)]
-        
+            pp = [m.start() for m in re.finditer(w, text)]
+            if pp: p.append(pp)
         try:
-            t = p[0]
-            head, s, tail = text.partition(text[t:t+13])
-            return (tail)
+            if k == 0:
+                t = min(p)[0]
+            if k == 1:
+                del min(p)[0]
+                t = min(p)[0]
+            head, s, tail = text.partition(text[t:t+14])
+            return (s[-1]+tail)
         except: return (text)
     
-    def __cleanText(self,text):
+    def __cleanText(self,text,k):
         """Helper function to remove the heading and references block of articles"""
         
-        txt = self.__head_remove(text)
+        txt = self.__head_remove(text,k)
         txt = self.__ref_remove(txt)
         txt = re.sub('\S*@\S*\s?', '',txt) #remove emails
         txt = re.sub(r'\s\s*', ' ', txt) #remove extra spaces
@@ -119,8 +129,9 @@ class TextExtraction:
         page0 = x.loadPage(0)
         txt =''
         txt = page0.getText('text')
-
-        if ". . . . . ." in txt:
+        words = ['Contents', 'CONTENTS']
+        if (". . . . . ." in txt) or any(word for word in 
+           words if (word in txt)):
             k = 1 
         else: 
             k = 0
@@ -134,9 +145,9 @@ class TextExtraction:
                 text=self.__extracttxt3()
 
         
-        else: text = self.__extracttxt1(k)       
+        else: text = self.__extracttxt1()       
         
-        text = self.__cleanText(text)
+        text = self.__cleanText(text,k)
 
            
-        return text
+        return text   
