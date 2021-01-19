@@ -7,6 +7,7 @@ texts based on the provided keywords and connection words.
 pke model (Boudin, 2016)
 See [here](https://github.com/boudinfl/pke/).
 
+spacy 2.2
 
 ## Documentation
 
