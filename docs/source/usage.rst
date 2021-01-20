@@ -10,6 +10,8 @@ by default. The type of the extracted knowledge is specified by the list of term
 In the example below acute toxicity articles are analyzed to retrieve information associated with
 the increase and prediction of toxicity. 
 
+**General usage:**
+
 .. code-block:: Python
 
    import knowmine_app
@@ -19,3 +21,20 @@ the increase and prediction of toxicity.
    relation_words = ["increas", "predict"]
    knowmine_app.extract_relevant_sentences(folder_path, main_terms, 
                                           relation_words, "xls")
+
+**Windows:**
+
+.. code-block:: Python
+
+   import knowmine_app
+
+   def main():
+
+       folder_path = "C:/Users/gulsha/Desktop/Articles extra for mining/"
+       main_terms = ["toxicit"]
+       relation_words = ["increas", "predict"]
+       knowmine_app.extract_relevant_sentences(folder_path, main_terms,
+                                           relation_words, "xls")
+
+   if __name__ == '__main__':
+    main() 
