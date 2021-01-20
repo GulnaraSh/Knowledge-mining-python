@@ -23,7 +23,7 @@ def get_sentences(file):
 def extract_relevant_sentences(folder_path, main_terms, relation_words, outputfile_format="db"):
     
     
-    n = int(os.cpu_count()/2)
+    n = int(os.cpu_count())
     pdfFileNames = FilesReader.get_file_names(folder_path)
     list_of_articles = [rse.RelevantSentences(item, main_terms, relation_words) for item in pdfFileNames]
     
