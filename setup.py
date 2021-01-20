@@ -11,8 +11,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="knowmine", 
-    version="0.0.4",
+    name="knowmine_app", 
+    version="0.0.1",
     author="Gulnara Shavalieva",
     author_email="gulsha@chalmers.se",
     description="Knowledge mining package",
