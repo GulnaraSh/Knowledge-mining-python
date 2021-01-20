@@ -9,6 +9,8 @@ See [here](https://github.com/boudinfl/pke/).
 
 spacy 2.2
 
+language model: python -m spacy download en_core_web_lg 
+
 ## Documentation
 
 Online documentation can be found [here](https://gulnarash.github.io/Knowledge-mining-python/).
