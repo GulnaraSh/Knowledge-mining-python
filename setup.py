@@ -28,7 +28,7 @@ setuptools.setup(
     python_requires='>=3.0',
     install_requires=[
         "gitpython",
-        "git+https://github.com/boudinfl/pke.git",
+        "git+ @ https://github.com/boudinfl/pke.git",
         "PyMuPDF",
         "textract",
         "pdfminer",
