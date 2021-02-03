@@ -27,7 +27,7 @@ setuptools.setup(
     ],
     python_requires='>=3.0',
     install_requires=[
-        "git",
+#        "git",
 #        "git+https://github.com/boudinfl/pke.git",
         "PyMuPDF",
         "textract",
