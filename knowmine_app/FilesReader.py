@@ -5,14 +5,14 @@ and returning the list of file names
 """
 
 
-import os
+from pathlib import Path
 
 
 def get_file_names(folder):
+    dir_path = Path(folder)
+# get all pdf files in directory
     pdfFileNames = []
-    # Get pdf fileName in folder
-    for file in os.listdir(folder):
-        filename = os.fsdecode(file)
-        if filename.endswith(('.pdf')):
-            pdfFileNames.append(folder+filename)
+    for file in dir_path.rglob('*.pdf'):
+        pdfFileNames.append(file)
+
     return pdfFileNames
