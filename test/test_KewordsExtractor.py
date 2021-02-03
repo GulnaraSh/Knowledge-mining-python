@@ -4,6 +4,8 @@ Unit tests for the knowmine.KeywordsExtractor module.
 """
 
 from knowmine.KeywordsExtractor import ExtractKeywords
+import nltk
+nltk.download('stopwords')
 
 
 def test_ExtractKeywords():
