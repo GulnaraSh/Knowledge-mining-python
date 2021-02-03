@@ -17,7 +17,7 @@ associated with the increase and prediction of toxicity.
 
 .. code-block:: Python
 
-   import knowmine_app
+   import knowmine
    
    folder_path = "C:/Acute toxicity articles/"
    main_terms = ["toxicit"]
@@ -29,7 +29,7 @@ associated with the increase and prediction of toxicity.
 
 .. code-block:: Python
 
-   import knowmine_app
+   import knowmine
 
    def main():
 
