@@ -8,10 +8,10 @@ of texts in pdf format and list of keywords for the extraction.
 
 """
 
-from knowmine_app import FilesReader
-from knowmine_app import RelevantSentencesExtractor as rse
+from knowmine import FilesReader
+from knowmine import RelevantSentencesExtractor as rse
 import concurrent.futures
-from knowmine_app import OutputfileGenerator as of
+from knowmine import OutputfileGenerator as of
 
 
 def get_sentences(file):

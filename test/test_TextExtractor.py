@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Unit tests for the knowmine_app.AllSentencesExtractor module.
+Unit tests for the knowmine.AllSentencesExtractor module.
 """
 
-from knowmine_app.TextExtractor import TextExtraction
+from knowmine.TextExtractor import TextExtraction
 
 
 def test_getText():
-    
+
     article = TextExtraction(r"test_article1.pdf")
-    
-    assert article.getText () != None
-    assert article.getText () != ''
-    
+
+    assert article.getText() is not None
+    assert article.getText() != ''

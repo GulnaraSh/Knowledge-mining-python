@@ -6,9 +6,9 @@ provided main terms and relation words if they are kewords of the sentence
 
 """
 
-from knowmine_app.KeywordsExtractor import ExtractKeywords
-from knowmine_app import TextExtractor as txtext
-from knowmine_app import AllSentencesExtractor as allsent
+from knowmine.KeywordsExtractor import ExtractKeywords
+from knowmine import TextExtractor as txtext
+from knowmine import AllSentencesExtractor as allsent
 import json
 
 

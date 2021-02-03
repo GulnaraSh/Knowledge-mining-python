@@ -6,7 +6,7 @@ returning the list of file names
 """
 
 
-from knowmine_app.FilesReader import get_file_names
+from knowmine.FilesReader import get_file_names
 import os
 
 
