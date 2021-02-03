@@ -4,9 +4,6 @@ Unit tests for the knowmine.AllSentencesExtractor module.
 """
 
 from knowmine.AllSentencesExtractor import SentencesExtraction
-import nltk
-nltk.download('stopwords')
-
 
 test_text = r"""The European Union established the regulation on registration,
              evaluation, authorization and restriction of chemicals (REACH) to
