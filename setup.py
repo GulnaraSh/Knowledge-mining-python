@@ -34,7 +34,5 @@ setuptools.setup(
         "pdfminer",
         "openpyxl"
         "spacy==2.2.3",
-        ("en_core_web_lg @ https://github.com/explosion/spacy-models/"
-         "releases/download/en_core_web_lg-3.0.0/en_core_web_lg-3.0.0.tar.gz")
     ]
 )
