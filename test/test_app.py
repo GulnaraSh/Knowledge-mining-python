@@ -7,6 +7,8 @@ Test for the knowmine main module
 
 import os
 from knowmine import extract_relevant_sentences
+import nltk
+nltk.download('stopwords')
 
 
 def main():
