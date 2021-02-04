@@ -30,7 +30,7 @@ setuptools.setup(
         "gitpython",
         "pke @ git+https://github.com/boudinfl/pke.git",
         "nltk",
-        "nltk.download('stopwords')",
+        "nltk @ nltk.download('stopwords')",
         "PyMuPDF",
         "textract",
         "pdfminer",
