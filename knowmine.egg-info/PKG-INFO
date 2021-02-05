@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: knowmine
+Version: 0.0.1
+Summary: Knowledge mining package
+Home-page: https://github.com/GulnaraSh/knowledge-mining-python
+Author: Gulnara Shavalieva
+Author-email: gulsha@chalmers.se
+License: UNKNOWN
+Description: # Knowledge mining python package
+        
+        The package allows to extract relevant sentences from scientific
+        texts based on the provided keywords and connection words. 
+        
+        # Requirements
+        pke model (Boudin, 2016)
+        See [here](https://github.com/boudinfl/pke/).
+        
+        spacy 2.2
+        
+        language model: python -m spacy download en_core_web_lg 
+        
+        ## Documentation
+        
+        Online documentation can be found [here](https://gulnarash.github.io/Knowledge-mining-python/).
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
