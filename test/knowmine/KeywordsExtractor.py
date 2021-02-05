@@ -5,11 +5,11 @@ https://boudinfl.github.io/pke/build/html/index.html
 
 """
 import re
-import nltk
 from nltk.corpus import stopwords
-nltk.download('stopwords')
-stopwords = stopwords.words('english')
 import pke
+
+
+stopwords = stopwords.words('english')
 
 
 def ExtractKeywords(sentences):
