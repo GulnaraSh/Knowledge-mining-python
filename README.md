@@ -4,12 +4,10 @@ The package allows to extract relevant sentences from scientific
 texts based on the provided keywords and connection words. 
 
 # Requirements
-pke model (Boudin, 2016)
-See [here](https://github.com/boudinfl/pke/).
+git
 
-spacy 2.2
-
-language model: python -m spacy download en_core_web_lg 
+See [here](https://git-scm.com/downloads).
+or for Anaconda [here](https://anaconda.org/anaconda/git).
 
 ## Documentation
 
