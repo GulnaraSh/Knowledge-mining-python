@@ -32,7 +32,7 @@ setuptools.setup(
         "pke @ git+https://github.com/boudinfl/pke.git",
         "PyMuPDF",
         "textract",
-        "pdfminer",
+        "pdfminer3",
         "openpyxl",
         ("en_core_web_lg @ https://github.com/explosion/spacy-models/"
          "releases/download/en_core_web_lg-3.0.0/en_core_web_lg-3.0.0.tar.gz")

@@ -54,7 +54,7 @@ class RelevantSentences:
     def __output(self):
         use_sents, n_all, nn = self.__ExtractUsefulSentences()
 
-        processResult = (self.file_name,
+        processResult = (str(self.file_name),
                          json.dumps(use_sents,
                                     ensure_ascii=False).encode('utf8'),
                          nn, n_all)

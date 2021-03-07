@@ -8,10 +8,10 @@ to extract and clean text from pdf articles
 import re
 import fitz
 import textract
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.converter import TextConverter
-from pdfminer.layout import LAParams
-from pdfminer.pdfpage import PDFPage
+from pdfminer3.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer3.converter import TextConverter
+from pdfminer3.layout import LAParams
+from pdfminer3.pdfpage import PDFPage
 from io import StringIO
 
 
