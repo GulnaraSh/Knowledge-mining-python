@@ -37,7 +37,7 @@ associated with the increase and prediction of toxicity.
        main_terms = ["toxicit"]
        relation_words = ["increas", "predict"]
        knowmine_app.extract_relevant_sentences(folder_path, main_terms,
-                                           relation_words, "xls")
+                                           relation_words, "xls", cores_number)
 
    if __name__ == '__main__':
     main() 
