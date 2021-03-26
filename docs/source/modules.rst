@@ -1,7 +1,7 @@
-knowmine_app
-============
+knowmine
+=========
 
 .. toctree::
    :maxdepth: 4
 
-   knowmine_app
+   knowmine

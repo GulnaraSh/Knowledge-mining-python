@@ -1,7 +1,7 @@
 Installation
 ============
 
-The package :code:`knowmine_app` can be install using :code:`pip`:
+The package :code:`knowmine` can be install using :code:`pip`:
 
 .. code-block:: bash
 

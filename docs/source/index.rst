@@ -2,7 +2,7 @@
 The knowmine_app package
 ========================
 
-The ``knowmine app`` Python package allows to perform knowledge extraction from
+The ``knowmine`` Python package allows to perform knowledge extraction from
 the collection of scientific articles. The knowledge retrieval is based on a list of terms
 and connection words provided by a User as an indication of the type of knowledge to be found. 
 

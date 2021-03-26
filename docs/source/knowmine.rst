@@ -1,56 +1,56 @@
 
-knowmine_app module
+knowmine module
 -------------------
 
-.. automodule:: knowmine_app
+.. automodule:: knowmine
    :members:
    :undoc-members:
    :show-inheritance:
 
-knowmine\_app.FilesReader module
+knowmine.FilesReader module
 --------------------------------
 
-.. automodule:: knowmine_app.FilesReader
+.. automodule:: knowmine.FilesReader
    :members:
    :undoc-members:
    :show-inheritance:
 
-knowmine\_app.TextExtractor module
+knowmine.TextExtractor module
 ----------------------------------
 
-.. automodule:: knowmine_app.TextExtractor
+.. automodule:: knowmine.TextExtractor
    :members:
    :undoc-members:
    :show-inheritance:   
 
-knowmine\_app.AllSentencesExtractor module
+knowmine.AllSentencesExtractor module
 ------------------------------------------
 
-.. automodule:: knowmine_app.AllSentencesExtractor
+.. automodule:: knowmine.AllSentencesExtractor
    :members:
    :undoc-members:
    :show-inheritance: 
 
-knowmine\_app.KeywordsExtractor module
+knowmine.KeywordsExtractor module
 --------------------------------------
 
-.. automodule:: knowmine_app.KeywordsExtractor
+.. automodule:: knowmine.KeywordsExtractor
    :members:
    :undoc-members:
    :show-inheritance:
 
-knowmine\_app.RelevantSentencesExtractor module
+knowmine.RelevantSentencesExtractor module
 -----------------------------------------------
 
-.. automodule:: knowmine_app.RelevantSentencesExtractor
+.. automodule:: knowmine.RelevantSentencesExtractor
    :members:
    :undoc-members:
    :show-inheritance:
 
-knowmine\_app.OutputfileGenerator module
+knowmine.OutputfileGenerator module
 ----------------------------------------
 
-.. automodule:: knowmine_app.OutputfileGenerator
+.. automodule:: knowmine.OutputfileGenerator
    :members:
    :undoc-members:
    :show-inheritance:

@@ -10,14 +10,11 @@ Possible reasons:
 
 Memory shortage:
 - close all other programs running on the cores
-- reduce the number of cores for running the package:
-   find __init__ module in the installed package directory
-   change the number of cores n 
-   
-The calling of the function on Windows does not include
-if __name__ == '__main__':
-    main() 
-- check the usage for Windows
-   
+- reduce the number of cores for running the package (cores_number)
+- check the usage for Windows: 
+    The calling of the function on Windows does not include
+    if __name__ == '__main__':
+		 main() 
+
 The memory issue might be fixed in the future, do not forget to update 
 the package from time to time.
