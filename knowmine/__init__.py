@@ -1,10 +1,10 @@
 """
-The knowmine module
-===================
-
 The " knowmine app"extracts potentially relevant sentences from the collection
 of scientific articles.Currently a User should provide a path to the collection
-of texts in pdf format and list of keywords for the extraction.
+of texts in pdf format, list of main keywords and connection words
+for the extraction. It is also possible to choose format of the output file
+(default=excel file) and define the number of cores to be used for the
+parallel works (default=2)
 
 """
 
@@ -18,12 +18,13 @@ def get_sentences(file):
     return file.get_relevant_sentences()
 
 
-def extract_relevant_sentences(folder_path, main_terms, relation_words,
-                               outputfile_format="db", cores_number=2):
+def extract_relevant_sentences(folder_path, main_terms, connection_words,
+                               outputfile_format="xls", cores_number=2):
 
     n = cores_number
     pdfFileNames = FilesReader.get_file_names(folder_path)
-    list_of_articles = [rse.RelevantSentences(item, main_terms, relation_words)
+    list_of_articles = [rse.RelevantSentences(item, main_terms,
+                                              connection_words)
                         for item in pdfFileNames]
 
     with concurrent.futures.ProcessPoolExecutor(max_workers=n) as executor:

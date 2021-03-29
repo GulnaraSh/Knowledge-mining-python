@@ -1,5 +1,4 @@
 """
-
 This module contains the TextExtraction class, which allows
 to extract and clean text from pdf articles
 

@@ -1,5 +1,5 @@
 """
-Function accessing the files in a User provided folder
+The module contains a function accessing the files in a User provided folder
 and returning the list of file names
 
 """
