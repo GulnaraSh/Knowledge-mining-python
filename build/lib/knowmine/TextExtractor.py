@@ -1,5 +1,4 @@
 """
-
 This module contains the TextExtraction class, which allows
 to extract and clean text from pdf articles
 
@@ -112,7 +111,8 @@ class TextExtraction:
             if k == 0:
                 t = min(p)[0]
             if k == 1:
-                del min(p)[0]
+                if len(p[0]) > 1:
+                    del min(p)[0]
                 t = min(p)[0]
             head, s, tail = text.partition(text[t:t+14])
             return (s[-1]+tail)
@@ -158,3 +158,4 @@ class TextExtraction:
         text = self.__cleanText(text, k)
 
         return text
+

@@ -1,6 +1,6 @@
 """
-The :code:`knowmine.KeywordsExtractor` module provides functionality to
-extract keywords of the sentences. Applies a pke module:
+The module provides functionality to extract keywords of the sentences.
+Applies a pke module:
 https://boudinfl.github.io/pke/build/html/index.html
 
 """

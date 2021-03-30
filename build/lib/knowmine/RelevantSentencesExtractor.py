@@ -1,5 +1,4 @@
 """
-
 This module contains a RelevantSentences class, which, from all
 the articles sentences, extracts only the ones containing the
 provided main terms and relation words if they are keywords of the sentence

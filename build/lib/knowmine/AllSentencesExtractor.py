@@ -67,9 +67,10 @@ class SentencesExtraction:
                          'P.phosphoreum': 'Photobacterium phosphoreum',
                          'S. capricornutum': 'Raphidocelis subcapitata',
                          'A.salina': 'Artemia salina,',
-                         'P.acuta Drap.': 'Pysella acuta Draparnaud'}
+                         'P.acuta Drap.': 'Pysella acuta Draparnaud',
+                         'No.': 'Number'}
         terminators = ['.', '!', '?']
-        wrappers = ['"', "'", ')', ']', '}']
+        wrappers = ['".', "'.", ').', '].', '}.']
         [possible_endings, contraction_locations] = [[], []]
         contractions = abbreviations.keys()
         sentence_terminators = terminators + [terminator + wrapper
@@ -99,6 +100,7 @@ class SentencesExtraction:
         return end
 
     def __remove_extra_spaces(self, all_s):
+
         full_sent = []
         for sent in all_s:
             sent = re.sub(r'\s+', ' ', sent)
@@ -108,9 +110,27 @@ class SentencesExtraction:
         return full_sent
 
     def __remove_incomplete_sent(self, all_s):
-        full_sent = []
+        un = []
+        comp = []
+        for i in range(len(all_s)):
+            if len(all_s[i]) > 45:
+                if all_s[i][0].isupper() or all_s[i][1].isupper():
+                    comp.append(i)
+                    continue
+                else:
+                    un.append(i)
+            else:
+                continue
 
-        for sent in all_s:
+        alls = [all_s[0]]
+        for i in range(1, len(all_s)):
+            if i in comp:
+                alls.append(all_s[i])
+            else:
+                alls[-1] = alls[-1] + all_s[i]
+
+        full_sent = []
+        for sent in alls:
             doc = nlp(sent)
             for sent_1 in doc.sents:
 
