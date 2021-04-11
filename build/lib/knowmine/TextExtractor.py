@@ -1,4 +1,5 @@
 """
+
 This module contains the TextExtraction class, which allows
 to extract and clean text from pdf articles
 
@@ -138,9 +139,14 @@ class TextExtraction:
         txt = ''
         txt = page0.getText('text')
         words = ['Contents', 'CONTENTS']
+        p = []
         if (". . . . . ." in txt) or any(word for word in
            words if (word in txt)):
             k = 1
+            for w in words:
+                p.append([m.start() for m in re.finditer(w, txt)])
+            if txt[p[0][0]+9].isalpha() or txt[p[0][0]+10].isalpha():
+                k = 0
         else:
             k = 0
 
@@ -158,4 +164,3 @@ class TextExtraction:
         text = self.__cleanText(text, k)
 
         return text
-
