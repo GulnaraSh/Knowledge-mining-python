@@ -136,17 +136,19 @@ class TextExtraction:
         """Helper function applying text extraction functions"""
         x = fitz.open(self.filepath)
         page0 = x.loadPage(0)
+        page1 = x.loadPage(1)
         txt = ''
-        txt = page0.getText('text')
+        txt = page0.getText('text') + page1.getText('text')
         words = ['Contents', 'CONTENTS']
         p = []
-        if (". . . . . ." in txt) or any(word for word in
-           words if (word in txt)):
+        if any(word for word in words if (word in txt)):
             k = 1
             for w in words:
                 p.append([m.start() for m in re.finditer(w, txt)])
             if txt[p[0][0]+9].isalpha() or txt[p[0][0]+10].isalpha():
                 k = 0
+            if (". . . . . ." in txt):
+                k = 1
         else:
             k = 0
 
