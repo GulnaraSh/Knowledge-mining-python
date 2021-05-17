@@ -47,7 +47,7 @@ class TextExtraction:
         codec = 'utf-8'
         laparams = LAParams()
         device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
-        fp = open(self.filepath, 'rb')
+        fp = open(str(self.filepath), 'rb')
         interpreter = PDFPageInterpreter(rsrcmgr, device)
         password = ""
         maxpages = 0
@@ -70,7 +70,7 @@ class TextExtraction:
         """Helper function to extract text of formats not recognized by
         PyMupdf and pdfminer"""
 
-        text = textract.process(self.filepath, encoding='utf-8')
+        text = textract.process(str(self.filepath), encoding='utf-8')
         return (str(text))
 
     def __ref_remove(self, text):
@@ -136,19 +136,17 @@ class TextExtraction:
         """Helper function applying text extraction functions"""
         x = fitz.open(self.filepath)
         page0 = x.loadPage(0)
-        page1 = x.loadPage(1)
         txt = ''
-        txt = page0.getText('text') + page1.getText('text')
+        txt = page0.getText('text')
         words = ['Contents', 'CONTENTS']
         p = []
-        if any(word for word in words if (word in txt)):
+        if (". . . . . ." in txt) or any(word for word in
+           words if (word in txt)):
             k = 1
             for w in words:
                 p.append([m.start() for m in re.finditer(w, txt)])
             if txt[p[0][0]+9].isalpha() or txt[p[0][0]+10].isalpha():
                 k = 0
-            if (". . . . . ." in txt):
-                k = 1
         else:
             k = 0
 
@@ -157,7 +155,7 @@ class TextExtraction:
             try:
                 text = self.__extracttxt2()
 
-            except ValueError:
+            except TypeError:
                 text = self.__extracttxt3()
 
         else:
