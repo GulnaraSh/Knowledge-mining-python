@@ -7,8 +7,8 @@ texts based on the provided keywords and connection words.
 git package
 
 Can be downloaded 
-[here](https://git-scm.com/downloads).
-Anaconda: [here](https://anaconda.org/anaconda/git).
+from [here](https://git-scm.com/downloads).
+or for Anaconda from [here](https://anaconda.org/anaconda/git).
 
 ## Documentation
 
