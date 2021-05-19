@@ -4,10 +4,11 @@ The package allows to extract relevant sentences from scientific
 texts based on the provided keywords and connection words. 
 
 # Requirements
-git
+git package
 
-See [here](https://git-scm.com/downloads).
-or for Anaconda [here](https://anaconda.org/anaconda/git).
+Can be downloaded 
+[here](https://git-scm.com/downloads).
+Anaconda: [here](https://anaconda.org/anaconda/git).
 
 ## Documentation
 
