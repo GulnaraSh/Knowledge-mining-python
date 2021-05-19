@@ -1,0 +1,243 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>knowmine module &#8212; Knowledge mining with python 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Possible Errors" href="errors.html" />
+    <link rel="prev" title="knowmine" href="modules.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="errors.html" title="Possible Errors"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="knowmine"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">knowmine</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">knowmine module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-knowmine">
+<span id="knowmine-module"></span><h1>knowmine module<a class="headerlink" href="#module-knowmine" title="Permalink to this headline">¶</a></h1>
+<p>The ” knowmine app”extracts potentially relevant sentences from the collection
+of scientific articles.Currently a User should provide a path to the collection
+of texts in pdf format, list of main keywords and connection words
+for the extraction. It is also possible to choose format of the output file
+(default=excel file) and define the number of cores to be used for the
+parallel works (default=2)</p>
+<dl class="py function">
+<dt id="knowmine.extract_relevant_sentences">
+<code class="sig-prename descclassname">knowmine.</code><code class="sig-name descname">extract_relevant_sentences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder_path</span></em>, <em class="sig-param"><span class="n">main_terms</span></em>, <em class="sig-param"><span class="n">connection_words</span></em>, <em class="sig-param"><span class="n">outputfile_format</span><span class="o">=</span><span class="default_value">'xls'</span></em>, <em class="sig-param"><span class="n">cores_number</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.extract_relevant_sentences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="knowmine.get_sentences">
+<code class="sig-prename descclassname">knowmine.</code><code class="sig-name descname">get_sentences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.get_sentences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-knowmine.FilesReader">
+<span id="knowmine-filesreader-module"></span><h1>knowmine.FilesReader module<a class="headerlink" href="#module-knowmine.FilesReader" title="Permalink to this headline">¶</a></h1>
+<p>The module contains a function accessing the files in a User provided folder
+and returning the list of file names</p>
+<dl class="py function">
+<dt id="knowmine.FilesReader.get_file_names">
+<code class="sig-prename descclassname">knowmine.FilesReader.</code><code class="sig-name descname">get_file_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.FilesReader.get_file_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-knowmine.TextExtractor">
+<span id="knowmine-textextractor-module"></span><h1>knowmine.TextExtractor module<a class="headerlink" href="#module-knowmine.TextExtractor" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the TextExtraction class, which allows
+to extract and clean text from pdf articles</p>
+<dl class="py class">
+<dt id="knowmine.TextExtractor.TextExtraction">
+<em class="property">class </em><code class="sig-prename descclassname">knowmine.TextExtractor.</code><code class="sig-name descname">TextExtraction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.TextExtractor.TextExtraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="knowmine.TextExtractor.TextExtraction.getText">
+<code class="sig-name descname">getText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.TextExtractor.TextExtraction.getText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class method extracting texts of articles</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-knowmine.AllSentencesExtractor">
+<span id="knowmine-allsentencesextractor-module"></span><h1>knowmine.AllSentencesExtractor module<a class="headerlink" href="#module-knowmine.AllSentencesExtractor" title="Permalink to this headline">¶</a></h1>
+<p>The module contains SentencesExtraction class which provides functionality
+to extract sentences from the given articles</p>
+<dl class="py class">
+<dt id="knowmine.AllSentencesExtractor.SentencesExtraction">
+<em class="property">class </em><code class="sig-prename descclassname">knowmine.AllSentencesExtractor.</code><code class="sig-name descname">SentencesExtraction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filetext</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.AllSentencesExtractor.SentencesExtraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class provides methods for recognizing single sentences
+of a given text</p>
+<dl class="py method">
+<dt id="knowmine.AllSentencesExtractor.SentencesExtraction.get_sentences">
+<code class="sig-name descname">get_sentences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.AllSentencesExtractor.SentencesExtraction.get_sentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class method extracting all the sentences of article texts</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-knowmine.KeywordsExtractor">
+<span id="knowmine-keywordsextractor-module"></span><h1>knowmine.KeywordsExtractor module<a class="headerlink" href="#module-knowmine.KeywordsExtractor" title="Permalink to this headline">¶</a></h1>
+<p>The module provides functionality to extract keywords of the sentences.
+Applies a pke module:
+<a class="reference external" href="https://boudinfl.github.io/pke/build/html/index.html">https://boudinfl.github.io/pke/build/html/index.html</a></p>
+<dl class="py function">
+<dt id="knowmine.KeywordsExtractor.ExtractKeywords">
+<code class="sig-prename descclassname">knowmine.KeywordsExtractor.</code><code class="sig-name descname">ExtractKeywords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sentences</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.KeywordsExtractor.ExtractKeywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-knowmine.RelevantSentencesExtractor">
+<span id="knowmine-relevantsentencesextractor-module"></span><h1>knowmine.RelevantSentencesExtractor module<a class="headerlink" href="#module-knowmine.RelevantSentencesExtractor" title="Permalink to this headline">¶</a></h1>
+<p>This module contains a RelevantSentences class, which, from all
+the articles sentences, extracts only the ones containing the
+provided main terms and relation words if they are keywords of the sentence</p>
+<dl class="py class">
+<dt id="knowmine.RelevantSentencesExtractor.RelevantSentences">
+<em class="property">class </em><code class="sig-prename descclassname">knowmine.RelevantSentencesExtractor.</code><code class="sig-name descname">RelevantSentences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">main_terms</span></em>, <em class="sig-param"><span class="n">relation_words</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.RelevantSentencesExtractor.RelevantSentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="knowmine.RelevantSentencesExtractor.RelevantSentences.get_relevant_sentences">
+<code class="sig-name descname">get_relevant_sentences</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.RelevantSentencesExtractor.RelevantSentences.get_relevant_sentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class method extracting relevant sentences of all the sentences
+of the texts</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-knowmine.OutputfileGenerator">
+<span id="knowmine-outputfilegenerator-module"></span><h1>knowmine.OutputfileGenerator module<a class="headerlink" href="#module-knowmine.OutputfileGenerator" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the Output class which helps to generate
+the output file of the desired format (sqlite database or excel)
+containing the extracted sentences, number of sentences in the
+original text (after the cleaning) and number of the extracted sentences
+The result file is generated in the folder containing the articles for mining.</p>
+<dl class="py class">
+<dt id="knowmine.OutputfileGenerator.Output">
+<em class="property">class </em><code class="sig-prename descclassname">knowmine.OutputfileGenerator.</code><code class="sig-name descname">Output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em>, <em class="sig-param"><span class="n">output</span></em><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.OutputfileGenerator.Output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="knowmine.OutputfileGenerator.Output.add_result_to_database">
+<code class="sig-name descname">add_result_to_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.OutputfileGenerator.Output.add_result_to_database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="knowmine.OutputfileGenerator.Output.add_result_to_excel">
+<code class="sig-name descname">add_result_to_excel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#knowmine.OutputfileGenerator.Output.add_result_to_excel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">knowmine module</a></li>
+<li><a class="reference internal" href="#module-knowmine.FilesReader">knowmine.FilesReader module</a></li>
+<li><a class="reference internal" href="#module-knowmine.TextExtractor">knowmine.TextExtractor module</a></li>
+<li><a class="reference internal" href="#module-knowmine.AllSentencesExtractor">knowmine.AllSentencesExtractor module</a></li>
+<li><a class="reference internal" href="#module-knowmine.KeywordsExtractor">knowmine.KeywordsExtractor module</a></li>
+<li><a class="reference internal" href="#module-knowmine.RelevantSentencesExtractor">knowmine.RelevantSentencesExtractor module</a></li>
+<li><a class="reference internal" href="#module-knowmine.OutputfileGenerator">knowmine.OutputfileGenerator module</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">knowmine</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="errors.html"
+                        title="next chapter">Possible Errors</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/knowmine.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="errors.html" title="Possible Errors"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="knowmine"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >knowmine</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">knowmine module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Gulnara Shavalieva.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+    </div>
+  </body>
+</html>

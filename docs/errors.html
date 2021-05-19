@@ -2,25 +2,25 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Possible Errors &#8212; Knowledge mining with python 0.0.1 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="knowmine_app module" href="knowmine_app.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="prev" title="knowmine module" href="knowmine.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -33,16 +33,50 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="knowmine_app.html" title="knowmine_app module"
+          <a href="knowmine.html" title="knowmine module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Possible Errors</a></li> 
       </ul>
-    </div>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="possible-errors">
+<h1>Possible Errors<a class="headerlink" href="#possible-errors" title="Permalink to this headline">¶</a></h1>
+<p>The package is written to run on several cores via
+<cite>concurrent.futures.ProcessPoolExecutor(max_workers=n)</cite>
+sometimes there is a <cite>BrokenProcessPool: A process in the process pool
+was terminated abruptly while the future was running or pending.</cite></p>
+<p>Possible reasons:</p>
+<p>Memory shortage:
+- close all other programs running on the cores
+- reduce the number of cores for running the package (cores_number)
+- check the usage for Windows:</p>
+<blockquote>
+<div><p>The calling of the function on Windows does not include
+if __name__ == ‘__main__’:</p>
+<blockquote>
+<div><p>main()</p>
+</div></blockquote>
+</div></blockquote>
+<p>The memory issue might be fixed in the future, do not forget to update
+the package from time to time.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="knowmine_app.html"
-                        title="previous chapter">knowmine_app module</a></p>
+  <p class="topless"><a href="knowmine.html"
+                        title="previous chapter">knowmine module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -59,38 +93,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="possible-errors">
-<h1>Possible Errors<a class="headerlink" href="#possible-errors" title="Permalink to this headline">¶</a></h1>
-<p>The package is written to run on several cores via
-<cite>concurrent.futures.ProcessPoolExecutor(max_workers=n)</cite>
-sometimes there is a <cite>BrokenProcessPool: A process in the process pool
-was terminated abruptly while the future was running or pending.</cite></p>
-<p>Possible solutions:</p>
-<ul class="simple">
-<li><p>close all other programs running on the cores</p></li>
-<li><p>try to select all (Ctrl+A) and then press R9</p></li>
-<li><dl class="simple">
-<dt>reduce the number of cores for running the package:</dt><dd><p>find __init__ module in the installed package directory
-change the number of cores n</p>
-</dd>
-</dl>
-</li>
-</ul>
-<p>The bag might be fixed in the future, do not forget to update
-the package from time to time.</p>
-</div>
-
-
-          </div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -105,14 +108,15 @@ the package from time to time.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="knowmine_app.html" title="knowmine_app module"
+          <a href="knowmine.html" title="knowmine module"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Knowledge mining with python 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Possible Errors</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Gulnara Shavalieva.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>
