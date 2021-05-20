@@ -1,6 +1,0 @@
-gitpython
-nltk
-PyMuPDF
-textract
-pdfminer3
-openpyxl
