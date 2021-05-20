@@ -29,7 +29,6 @@ setuptools.setup(
     install_requires=[
         "gitpython",
         "nltk",
-        "pke @ git+https://github.com/boudinfl/pke.git",
         "PyMuPDF",
         "textract",
         "pdfminer3",
