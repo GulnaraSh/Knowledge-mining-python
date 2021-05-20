@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="knowmine",
-    version="0.0.1",
+    version="0.0.5",
     author="Gulnara Shavalieva",
     author_email="gulsha@chalmers.se",
     description="Knowledge mining package",
@@ -32,8 +32,6 @@ setuptools.setup(
         "PyMuPDF",
         "textract",
         "pdfminer3",
-        "openpyxl",
-        ("en_core_web_lg @ https://github.com/explosion/spacy-models/"
-         "releases/download/en_core_web_lg-3.0.0/en_core_web_lg-3.0.0.tar.gz")
+        "openpyxl"        
     ]
 )
