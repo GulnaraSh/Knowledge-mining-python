@@ -8,7 +8,6 @@ and connection words provided by a User as an indication of the type of knowledg
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
    installation
    usage   
