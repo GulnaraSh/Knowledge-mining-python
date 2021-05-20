@@ -9,7 +9,7 @@ _git_ (can be downloaded from [here](https://git-scm.com/downloads) or for Anaco
 
 _pke_ (pip install git+https://github.com/boudinfl/pke.git)
 
-_en_core_web_lg_ (can be downloaded from [here](https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.0.0/en_core_web_lg-3.0.0.tar.gz)
+_en_core_web_lg_ (can be downloaded from [here](https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.0.0/en_core_web_lg-3.0.0.tar.gz) )
 
 ## Documentation
 
