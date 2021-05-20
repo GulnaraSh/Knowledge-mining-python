@@ -5,7 +5,9 @@ texts based on the provided keywords and connection words.
 
 # Requirements
 _git_ (can be downloaded from [here](https://git-scm.com/downloads) or for Anaconda from [here](https://anaconda.org/anaconda/git) )
-and _pke_ (can be found [here](https://github.com/boudinfl/pke) )
+
+_pke_ (pip install git+https://github.com/boudinfl/pke.git)
+
 
 ## Documentation
 
